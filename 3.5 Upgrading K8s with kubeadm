@@ -10,7 +10,7 @@ kubectl drain k8s-control --ignore-daemonsets
 # Upgrade kubeadm.
 
 sudo apt-get update && \
-sudo apt-get install -y --allow-change-held-packages kubeadm=1.27.2-00
+sudo apt-get install -y --allow-change-held-packages kubeadm=1.27.2-1.1
 kubeadm version
 
 # Plan the upgrade.
@@ -24,7 +24,7 @@ sudo kubeadm upgrade apply v1.27.2
 # Upgrade kubelet and kubectl on the control plane node.
 
 sudo apt-get update && \
-sudo apt-get install -y --allow-change-held-packages kubelet=1.27.2-00 kubectl=1.27.2-00
+sudo apt-get install -y --allow-change-held-packages kubelet=1.27.2-1.1 kubectl=1.27.2-1.1
 
 # Restart kubelet.
 
@@ -49,7 +49,7 @@ kubectl drain k8s-worker1 --ignore-daemonsets --force
 # Log in to the first worker node, then Upgrade kubeadm.
 
 sudo apt-get update && \
-sudo apt-get install -y --allow-change-held-packages kubeadm=1.27.2-00
+sudo apt-get install -y --allow-change-held-packages kubeadm=1.27.2-1.1
 
 # Upgrade the kubelet configuration on the worker node.
 
@@ -58,7 +58,7 @@ sudo kubeadm upgrade node
 # Upgrade kubelet and kubectl on the worker node.
 
 sudo apt-get update && \
-sudo apt-get install -y --allow-change-held-packages kubelet=1.27.2-00 kubectl=1.27.2-00
+sudo apt-get install -y --allow-change-held-packages kubelet=1.27.2-1.1 kubectl=1.27.2-1.1
 
 # Restart kubelet.
 
@@ -77,13 +77,13 @@ kubectl drain k8s-worker2 --ignore-daemonsets --force
 # On the second worker node, upgrade kubeadm.
 
 sudo apt-get update && \
-sudo apt-get install -y --allow-change-held-packages kubeadm=1.27.2-00
+sudo apt-get install -y --allow-change-held-packages kubeadm=1.27.2-1.1
 
 # Perform the upgrade on worker node 2.
 
 sudo kubeadm upgrade node
 sudo apt-get update && \
-sudo apt-get install -y --allow-change-held-packages kubelet=1.27.2-00 kubectl=1.27.2-00
+sudo apt-get install -y --allow-change-held-packages kubelet=1.27.2-1.1 kubectl=1.27.2-1.1
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
